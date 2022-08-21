@@ -9,16 +9,16 @@ import SignInScreen from './src/screens/SignInScreen';
 const App = () => {
 
   return (
-     <SafeAreaView >
+     <SafeAreaView style={styles.root}>
 <SignInScreen/>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  root: {
+    flex:1,
+backgroundColor:"#F9FBFC",
   },
 });
 

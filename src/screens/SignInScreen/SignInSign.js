@@ -1,4 +1,4 @@
-import { View, Text ,Image,StyleSheet} from 'react-native'
+import { View, Text ,Image,StyleSheet,ScrollView} from 'react-native'
 import React,{useState} from 'react';
 import Logo from '../../../assets/images/download.jpg'
 import CustomInput from '../../components/CustomInput'
@@ -9,7 +9,14 @@ const SignInSign = () => {
     const onSignIn=() => {
         console.warn("Successfully logged in.");
     }
-  return (
+    const SignUp=() => {
+        console.warn("Don't have a Account.");
+    }
+    const Forgot=() => {
+        console.warn("Forgot Password.");
+    }
+    return (
+      <ScrollView >
       <View style={styles.root}>
           <Image source={Logo} style={styles.logo} resizeMode="contain" />
 
@@ -26,13 +33,17 @@ const SignInSign = () => {
               value={userPassword}
               setValue={setUserPassword}
           />
-    <CustomButton text="Submit" onPress={onSignIn}/>
-    </View>
+    <CustomButton text="Sign in" onPress={onSignIn}type="PRIMARY" />
+    <CustomButton text="Forgot Password" onPress={Forgot} type="SECONDARY"/>
+    <CustomButton text="Don't have account" onPress={SignUp}  bgColor="#e3e3e3"/>
+
+            </View>
+            </ScrollView>
   )
 }
 const styles = StyleSheet.create({
     root: {
-        alignItems: 'center',
+alignItems: 'center',
 padding:30,
     },
     title: {
@@ -44,7 +55,7 @@ fontWeight:"500",
     logo: {
         width: "70%",
         maxWidth: 300,
-        height:"90%",
+
         maxHeight:200,
     }
 })
